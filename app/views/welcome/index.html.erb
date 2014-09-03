@@ -1,0 +1,19 @@
+<h1>Welcome to SOCO Score!</h1>
+<h3>
+  Enter the name of the user you want to search
+</h3>
+<%= form_tag('/', {method: :get}) do %>
+  <div>
+    User Name:
+    <%= text_field_tag 'username' , nil, placeholder: "Enter user name" %>
+  </div>
+  <div><%= submit_tag 'Search' %></div>
+<% end %>
+<p><strong> Users : </strong></p>
+<% if @users.is_a? Array %>
+	<% @users.each do |user| %>
+		<%= user %> <br />
+	<% end %>
+<% else %>
+  <% @users %>
+<% end %>
